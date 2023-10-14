@@ -15,11 +15,11 @@
                         <th>No.</th>
                         <th>Nis</th>
                         <th>Nama Siswa</th>
-                        <th>ID Jadwal</th>
-                        <th>ID Kelas</th>
+                        <th>Jadwal</th>
+                        <th>Kelas</th>
                         <th>Keterangan</th>
-                        <th>Tanggal</th>
-                        <th width="90px" class="text-center">Aksi</th>
+                        <th>Tanggal Absensi</th>
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,8 +30,8 @@
                                 <td><?php echo $no++; ?></td>
                                 <td><?php echo $row['nis']; ?></td>
                                 <td><?php echo $row['nama_siswa']; ?></td>
-                                <td><?php echo $row['id_jadwal']; ?></td>
-                                <td><?php echo $row['id_kelas']; ?></td>
+                                <td><?php echo $row['hari']; ?></td>
+                                <td><?php echo $row['nama_kelas']; ?></td>
                                 <td><?php echo $row['keterangan']; ?></td>
                                 <td><?php echo $row['tanggal']; ?></td>
                                 <td>

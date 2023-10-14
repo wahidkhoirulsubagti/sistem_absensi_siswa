@@ -12,7 +12,7 @@ class RekapitulasiModel extends CI_Model
 
   public function get_rekapitulasi()
   {
-    $this->db->select('absensi.id_absensi, absensi.nis, siswa.nama_siswa, absensi.id_jadwal, absensi.id_kelas, absensi.keterangan, absensi.tanggal');
+    $this->db->select('absensi.id_absensi, absensi.nis, siswa.nama_siswa, absensi.id_jadwal, absensi.id_kelas, absensi.keterangan, absensi.tanggal, kelas.nama_kelas');
     $this->db->from('absensi');
     $this->db->join('siswa', 'siswa.nis = absensi.nis', 'left');
     $this->db->join('jadwal', 'jadwal.id_jadwal = absensi.id_jadwal', 'left');

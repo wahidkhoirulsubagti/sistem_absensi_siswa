@@ -36,7 +36,9 @@
                 <img height="100px" src="<?php echo base_url() ?>assets/img/logotamhar.png" alt="..">
                 <br>
             </div>
-            <div class="text-center" id="tanggal_rekap" style="display: none;">
+            <div class="text-center" id="tanggal_rekap" style="display: none;"></div>
+            <div id="btnCariRekap">
+                <a href="<?php echo base_url() ?>" class="btn btn-primary"><i class="fas fa-search"></i> Cari Rekap Absensi</a>
             </div>
     </div>
     <div class=" card-body">
@@ -159,22 +161,12 @@
             display: block !important;
         }
 
-        #btnCetak {
-            display: none;
-        }
-
-        #btntambah {
-            display: none;
-        }
-
+        #btnCetak,
+        #btnCariRekap,
+        #btntambah,
         #aksi {
             display: none;
         }
-
-        /* 
-        #btnaksi {
-            display: none;
-        } */
 
         #btnExport {
             display: none;
