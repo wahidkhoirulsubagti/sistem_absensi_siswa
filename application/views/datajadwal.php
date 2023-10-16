@@ -37,7 +37,7 @@
                                         <!-- Tombol Edit -->
                                         <button type="button" class="btn btn-sm btn-warning mr-1" data-toggle="modal" data-target="#editModal<?php echo $row['id_jadwal']; ?>"><i class="fas fa-edit"></i></button>
                                         <!-- Tombol Hapus -->
-                                        <a href="<?php echo base_url('admin/hapus_jadwal/' . $row['id_jadwal']); ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus Jadwal ini?');">
+                                        <a href="" onclick="return confirmDelete('Konfirmasi Hapus Data Jadwal', 'Apakah Anda yakin ingin menghapus jadwal ini?', '<?= base_url('admin/hapus_jadwal/' . $row['id_jadwal']); ?>');">
                                             <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                                         </a>
                                     </div>

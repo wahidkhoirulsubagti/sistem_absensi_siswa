@@ -114,8 +114,9 @@ class Guru extends CI_Controller
         // Hapus data siswa dari database
         $this->AbsensiModel->hapus_absensi($id_absensi);
 
-        // Redirect kembali ke halaman admin atau halaman lain yang diinginkan
-        redirect('guru/data_absensi');
+        $this->session->set_flashdata('message', 'Data absensi berhasil dihapus!');
+        $this->session->set_flashdata('toast', 'success');
+        redirect(site_url('guru/data_absensi'));
     }
 
 

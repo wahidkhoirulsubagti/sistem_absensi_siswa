@@ -69,4 +69,35 @@
          </body>
      </form>
 
+
+     <!-- Di dalam tag <head> -->
+     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+     <script>
+         // Ambil pesan notifikasi dari URL
+         const urlParams = new URLSearchParams(window.location.search);
+         const message = urlParams.get('message');
+
+         if (message) {
+             // Tampilkan pesan notifikasi menggunakan Swal
+             const Toast = Swal.mixin({
+                 toast: true,
+                 position: 'top-end',
+                 showConfirmButton: false,
+                 showCloseButton: true,
+                 timer: 3000,
+                 timerProgressBar: true,
+                 didOpen: (toast) => {
+                     toast.addEventListener('mouseenter', Swal.stopTimer)
+                     toast.addEventListener('mouseleave', Swal.resumeTimer)
+                 }
+             })
+
+             Toast.fire({
+                 icon: 'success',
+                 title: message
+             });
+         }
+     </script>
+
  </html>

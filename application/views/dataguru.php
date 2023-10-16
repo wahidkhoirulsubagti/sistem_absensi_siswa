@@ -43,7 +43,7 @@
                                         <!-- Tombol Edit -->
                                         <button type="button" class="btn btn-sm btn-warning mr-1" data-toggle="modal" data-target="#editModal<?php echo $row['nip']; ?>"><i class="fas fa-edit"></i></button>
                                         <!-- Tombol Hapus -->
-                                        <a href="<?php echo base_url('admin/hapus_guru/' . $row['nip']); ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data guru ini?');">
+                                        <a href="" onclick="return confirmDelete('Konfirmasi Hapus Data Guru', 'Apakah Anda yakin ingin menghapus data guru ini?', '<?= base_url('admin/hapus_guru/' . $row['nip']); ?>');">
                                             <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                                         </a>
                                     </div>
@@ -65,8 +65,8 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body">
-                                    <form action="<?php echo site_url('admin/update_guru'); ?>" method="post">
+                                <form action="<?php echo site_url('admin/update_guru'); ?>" method="post">
+                                    <div class="modal-body">
                                         <div class="form-group">
                                             <label for="nama">Nip:</label>
                                             <input readonly class="form-control" name="nip" id="nip" value="<?php echo $row['nip']; ?>">
@@ -111,10 +111,11 @@
                                             <label for="nama">Alamat Guru:</label>
                                             <input type="text" class="form-control" name="alamat_guru" id="alamat_guru" value="<?php echo $row['alamat_guru']; ?>" required>
                                         </div>
-
+                                    </div>
+                                    <div class="modal-footer">
                                         <button type="submit" class="btn btn-primary">Simpan</button>
-                                    </form>
-                                </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

@@ -26,14 +26,14 @@
                             <td><?php echo $row['id_matapelajaran']; ?></td>
                             <td><?php echo $row['nama_matapelajaran']; ?></td>
 
-                            
+
                             <td class=" text-center"> <!-- Kolom untuk aksi, misalnya tombol edit atau hapus -->
                                 <!-- Isi dengan aksi yang diinginkan -->
 
                                 <!-- Tombol Edit -->
                                 <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#editModal_pelajaran<?php echo $row['id_matapelajaran']; ?>"><i class="fas fa-edit"></i></button>
                                 <!-- Tombol Hapus -->
-                                <a href="<?php echo base_url('admin/hapus_pelajaran/' . $row['id_matapelajaran']); ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus Mata Pelajaran Ini?');">
+                                <a href="" onclick="return confirmDelete('Konfirmasi Hapus Data Mata Pelajaran', 'Apakah Anda yakin ingin menghapus mata pelajaran ini?', '<?= base_url('admin/hapus_pelajaran/' . $row['id_matapelajaran']); ?>');">
                                     <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                                 </a>
                             </td>

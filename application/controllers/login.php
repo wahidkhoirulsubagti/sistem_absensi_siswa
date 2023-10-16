@@ -37,8 +37,12 @@ class Login extends CI_Controller
                 'status' => "login",
                 'level' => $user->level
             );
+            $nama = $user->user_name; // Nama pengguna yang berhasil login
 
             $this->session->set_userdata($data_session);
+
+            $this->session->set_flashdata('message', "Login Berhasil sebagai $nama!");
+            $this->session->set_flashdata('toast', 'success');
 
             // Misalkan level '1' akan dialihkan ke halaman admin
             // Dan level '2' akan dialihkan ke halaman user
@@ -52,14 +56,19 @@ class Login extends CI_Controller
                 echo "Level pengguna tidak valid";
             }
         } else {
-            echo "Username dan password salah !";
+            $this->session->set_flashdata('message', "Username atau password salah!");
+            $this->session->set_flashdata('toast', 'error');
+            redirect(base_url('login'));
         }
     }
 
 
-    function logout()
+    public function logout()
     {
         $this->session->sess_destroy();
-        redirect(base_url('login'));
+        $message = 'Logout berhasil!';
+        $this->session->set_flashdata('message', $message);
+        $this->session->set_flashdata('toast', 'success');
+        redirect(base_url('login?message=' . urlencode($message)));
     }
 }

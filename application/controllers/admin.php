@@ -64,9 +64,9 @@ class Admin extends CI_Controller
 		// Hapus data siswa dari database
 		$this->SiswaModel->hapus_siswa($nis);
 
-
-		echo "<script>alert('Data siswa berhasil dihapus.');</script>";
-		echo "<script>window.location.href = '" . site_url('admin/datasiswa') . "';</script>";
+		$this->session->set_flashdata('message', 'Data siswa berhasil dihapus!');
+		$this->session->set_flashdata('toast', 'success');
+		redirect(site_url('admin/datasiswa'));
 	}
 
 
@@ -98,10 +98,10 @@ class Admin extends CI_Controller
 		$this->KelasModel->hapus_kelas($id_kelas);
 
 
-		echo "<script>alert('Data kelas berhasil dihapus.');</script>";
-		echo "<script>window.location.href = '" . site_url('admin/data_kelas') . "';</script>";
-		// Redirect kembali ke halaman admin atau halaman lain yang diinginkan
-		// redirect('admin/data_kelas');
+
+		$this->session->set_flashdata('message', 'Data kelas berhasil dihapus!');
+		$this->session->set_flashdata('toast', 'success');
+		redirect(site_url('admin/data_kelas'));
 	}
 
 
@@ -126,9 +126,9 @@ class Admin extends CI_Controller
 			$this->load->model('KelasModel');
 			$this->KelasModel->save_kelas($data);
 
-			// Set pesan alert
-			echo "<script>alert('Data kelas berhasil disimpan.');</script>";
-			echo "<script>window.location.href = '" . site_url('admin/data_kelas') . "';</script>";
+			$this->session->set_flashdata('message', 'Data kelas berhasil disimpan!');
+			$this->session->set_flashdata('toast', 'success');
+			redirect(site_url('admin/data_kelas'));
 		}
 	}
 
@@ -153,10 +153,11 @@ class Admin extends CI_Controller
 		$this->load->model('KelasModel');
 		$this->KelasModel->update_kelas($id_kelas, $data);
 
-		echo "<script>alert('Data kelas berhasil diupdate.');</script>";
-		echo "<script>window.location.href = '" . site_url('admin/data_kelas') . "';</script>";
-		// Redirect ke halaman sukses atau halaman lain yang diinginkan
-		// redirect('admin/data_kelas');
+
+
+		$this->session->set_flashdata('message', 'Data kelas berhasil diupdate!');
+		$this->session->set_flashdata('toast', 'success');
+		redirect(site_url('admin/data_kelas'));
 	}
 
 
@@ -188,8 +189,9 @@ class Admin extends CI_Controller
 		// Hapus data guru dari database
 		$this->GuruModel->hapus_guru($nip);
 
-		// Redirect kembali ke halaman admin atau halaman lain yang diinginkan
-		redirect('admin/data_guru');
+		$this->session->set_flashdata('message', 'Data guru berhasil dihapus!');
+		$this->session->set_flashdata('toast', 'success');
+		redirect(site_url('admin/data_guru'));
 	}
 
 	public function save_guru()
@@ -209,9 +211,10 @@ class Admin extends CI_Controller
 		$this->load->model('GuruModel');
 		$this->GuruModel->save_Guru($data);
 
-		// Set pesan alert
-		echo "<script>alert('Data Guru berhasil disimpan.');</script>";
-		echo "<script>window.location.href = '" . site_url('admin/data_guru') . "';</script>";
+
+		$this->session->set_flashdata('message', 'Data guru berhasil ditambahkan!');
+		$this->session->set_flashdata('toast', 'success');
+		redirect(site_url('admin/data_guru'));
 	}
 	public function update_guru()
 	{
@@ -234,9 +237,9 @@ class Admin extends CI_Controller
 		$this->load->model('GuruModel');
 		$this->GuruModel->update_guru($nip, $data);
 
-
-		// Redirect ke halaman sukses atau halaman lain yang diinginkan
-		redirect('admin/data_guru');
+		$this->session->set_flashdata('message', 'Data guru berhasil diupdate!');
+		$this->session->set_flashdata('toast', 'success');
+		redirect(site_url('admin/data_guru'));
 	}
 
 
@@ -266,8 +269,10 @@ class Admin extends CI_Controller
 		// Hapus data siswa dari database
 		$this->PelajaranModel->hapus_pelajaran($id_matapelajaran);
 
-		// Redirect kembali ke halaman admin atau halaman lain yang diinginkan
-		redirect('admin/data_pelajaran');
+
+		$this->session->set_flashdata('message', 'Mata pelajaran berhasil dihapus!');
+		$this->session->set_flashdata('toast', 'success');
+		redirect(site_url('admin/data_pelajaran'));
 	}
 
 	public function save_pelajaran()
@@ -291,9 +296,9 @@ class Admin extends CI_Controller
 			$this->load->model('PelajaranModel');
 			$this->PelajaranModel->save_pelajaran($data);
 
-			// Set pesan alert
-			echo "<script>alert('Data Mata Pelajaran berhasil disimpan.');</script>";
-			echo "<script>window.location.href = '" . site_url('admin/data_pelajaran') . "';</script>";
+			$this->session->set_flashdata('message', 'Mata pelajaran berhasil ditambahkan!');
+			$this->session->set_flashdata('toast', 'success');
+			redirect(site_url('admin/data_pelajaran'));
 		}
 	}
 
@@ -317,8 +322,9 @@ class Admin extends CI_Controller
 		$this->PelajaranModel->update_pelajaran($nama_matapelajaran, $data);
 
 
-		// Redirect ke halaman sukses atau halaman lain yang diinginkan
-		redirect('admin/data_pelajaran');
+		$this->session->set_flashdata('message', 'Mata pelajaran berhasil diupdate!');
+		$this->session->set_flashdata('toast', 'success');
+		redirect(site_url('admin/data_pelajaran'));
 	}
 
 	function data_jadwal()
@@ -347,8 +353,10 @@ class Admin extends CI_Controller
 		// Hapus data siswa dari database
 		$this->JadwalModel->hapus_jadwal($id_jadwal);
 
-		// Redirect kembali ke halaman admin atau halaman lain yang diinginkan
-		redirect('admin/data_jadwal');
+
+		$this->session->set_flashdata('message', 'Data jadwal berhasil dihapus!');
+		$this->session->set_flashdata('toast', 'success');
+		redirect(site_url('admin/data_jadwal'));
 	}
 
 	public function save_jadwal()
@@ -365,9 +373,9 @@ class Admin extends CI_Controller
 		$this->load->model('JadwalModel');
 		$this->JadwalModel->save_jadwal($data);
 
-		// Set pesan alert
-		echo "<script>alert('Jadwal berhasil disimpan.');</script>";
-		echo "<script>window.location.href = '" . site_url('admin/data_jadwal') . "';</script>";
+		$this->session->set_flashdata('message', 'Data jadwal berhasil disimpan!');
+		$this->session->set_flashdata('toast', 'success');
+		redirect(site_url('admin/data_jadwal'));
 	}
 
 	public function update_jadwal()
@@ -394,8 +402,9 @@ class Admin extends CI_Controller
 		$this->JadwalModel->update_jadwal($open, $data);
 
 
-		// Redirect ke halaman sukses atau halaman lain yang diinginkan
-		redirect('admin/data_jadwal');
+		$this->session->set_flashdata('message', 'Data jadwal berhasil diupdate!');
+		$this->session->set_flashdata('toast', 'success');
+		redirect(site_url('admin/data_jadwal'));
 	}
 
 
@@ -409,8 +418,9 @@ class Admin extends CI_Controller
 		// Hapus data siswa dari database
 		$this->RekapitulasiModel->hapus_rekapitulasi($nis);
 
-		// Redirect kembali ke halaman admin atau halaman lain yang diinginkan
-		redirect('guru/data_rekapitulasi');
+		$this->session->set_flashdata('message', 'Rekapitulasi berhasil dihapus!');
+		$this->session->set_flashdata('toast', 'success');
+		redirect(site_url('guru/data_rekapitulasi'));
 	}
 
 	public function save_rekapitulasi()
@@ -440,9 +450,9 @@ class Admin extends CI_Controller
 			$this->load->model('RekapitulasiModel');
 			$this->RekapitulasiModel->save_rekapitulasi($data);
 
-			// Set pesan alert
-			echo "<script>alert('Data Rekapitulasi berhasil disimpan.');</script>";
-			echo "<script>window.location.href = '" . site_url('admin/data_rekapitulasi') . "';</script>";
+			$this->session->set_flashdata('message', 'Rekapitulasi berhasil ditambahkan!');
+			$this->session->set_flashdata('toast', 'success');
+			redirect(site_url('admin/data_rekapitulasi'));
 		}
 	}
 
@@ -468,8 +478,9 @@ class Admin extends CI_Controller
 
 
 
-		// Redirect ke halaman sukses atau halaman lain yang diinginkan
-		redirect('admin/data_rekapitulasi');
+		$this->session->set_flashdata('message', 'Rekapitulasi berhasil diupdate!');
+		$this->session->set_flashdata('toast', 'success');
+		redirect(site_url('admin/data_rekapitulasi'));
 	}
 
 	public function rekapitulasi__construct()

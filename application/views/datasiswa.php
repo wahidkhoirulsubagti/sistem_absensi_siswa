@@ -20,17 +20,11 @@
                         <th>Jenis Kelamin</th>
                         <th>Agama Siswa</th>
                         <th>Alamat Siswa</th>
-                        <th width="90px" class="text-center" >Aksi </th>
+                        <th width="90px" class="text-center">Aksi </th>
                     </tr>
                 </thead>
                 <tbody>
-
-                
-                    
-                        <?php $no = 1; ?>
-                        
-                            
-                                
+                    <?php $no = 1; ?>
                     <?php foreach ($siswa as $row) : ?>
                         <tr>
                             <td><?php echo $no++; ?></td>
@@ -47,9 +41,10 @@
                                 <!-- Tombol Edit -->
                                 <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#editModal<?php echo $row['nis']; ?>"><i class="fas fa-edit"></i></button>
                                 <!-- Tombol Hapus -->
-                                <a href="<?php echo base_url('admin/hapus_siswa/' . $row['nis']); ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus siswa ini?');">
+                                <a href="" onclick="return confirmDelete('Konfirmasi Hapus Siswa', 'Apakah Anda yakin ingin menghapus siswa ini?', '<?= base_url('admin/hapus_siswa/' . $row['nis']); ?>');">
                                     <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                                 </a>
+
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -66,8 +61,9 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <div class="modal-body">
-                                    <form action="<?php echo site_url('SiswaController/update'); ?>" method="post">
+                                <form action="<?php echo site_url('SiswaController/update'); ?>" method="post">
+
+                                    <div class="modal-body">
                                         <div class="form-group">
                                             <label for="nama">Nis:</label>
                                             <input readonly class="form-control" name="nis" id="nis" value="<?php echo $row['nis']; ?>">
@@ -112,14 +108,15 @@
                                             <label for="nama">Alamat Siswa:</label>
                                             <input type="text" class="form-control" name="alamat_siswa" id="alamat_siswa" value="<?php echo $row['alamat_siswa']; ?>" required>
                                         </div>
+                                    </div>
+                                    <div class="modal-footer">
                                         <button type="submit" class="btn btn-primary">Simpan</button>
-                                    </form>
-                                </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 <?php } ?>
-
 
             </table>
         </div>

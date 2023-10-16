@@ -41,7 +41,7 @@
                                         <!-- Tombol Edit -->
                                         <button type="button" class="btn btn-sm btn-warning mr-1" data-toggle="modal" data-target="#editModal<?php echo $row['id_absensi']; ?>"><i class="fas fa-edit"></i></button>
                                         <!-- Tombol Hapus -->
-                                        <a href="<?php echo base_url('guru/hapus_absensi/' . $row['id_absensi']); ?>" onclick="return confirm('Apakah Anda yakin ingin menghapus data Absensi Ini?');">
+                                        <a href="" onclick="return confirmDelete('Konfirmasi Hapus Data Absensi', 'Apakah Anda yakin ingin menghapus data absensi ini?', '<?= base_url('guru/hapus_absensi/' . $row['id_absensi']); ?>');">
                                             <button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button>
                                         </a>
                                     </div>

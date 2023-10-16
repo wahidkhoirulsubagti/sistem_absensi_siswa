@@ -54,14 +54,60 @@
 
 <!-- Tambahkan script jQuery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- Tambahkan script Data Tables -->
-    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-    <!-- Inisialisasi Data Tables -->
+<!-- Tambahkan script Data Tables -->
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<!-- Inisialisasi Data Tables -->
+<script>
+    $(document).ready(function() {
+        $('#dataTable').DataTable();
+    });
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<?php if ($this->session->flashdata('message')) : ?>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        $(document).ready(function() {
-            $('#dataTable').DataTable();
-        });
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            showCloseButton: true,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: '<?= $this->session->flashdata('toast') ?>',
+            title: '<?= $this->session->flashdata('message') ?>'
+        })
     </script>
+<?php endif ?>
+
+<script>
+    function confirmDelete(title, text, url) {
+        Swal.fire({
+            title: title,
+            text: text,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Ya',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location = url;
+            }
+        });
+        return false; // Menghentikan tindakan href asli dari terjadi
+    }
+</script>
+
 </body>
 
 </html>
