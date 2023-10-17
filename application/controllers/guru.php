@@ -68,9 +68,10 @@ class Guru extends CI_Controller
         $this->load->model('AbsensiModel');
         $this->AbsensiModel->save_absensi($data);
 
-        // Set pesan alert
-        echo "<script>alert('Data Absensi berhasil disimpan.');</script>";
-        echo "<script>window.location.href = '" . site_url('guru/data_absensi') . "';</script>";
+
+        $this->session->set_flashdata('message', 'Data absensi berhasil ditambahkan!');
+        $this->session->set_flashdata('toast', 'success');
+        redirect(site_url('guru/data_absensi'));
     }
 
     public function update_absensi()
